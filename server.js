@@ -99,7 +99,11 @@ async function pushDataToKnowledgebase(data) {
     }
 }
 
-
+// Define a default endpoint for the root URL path ("/")
+app.get('/', (req, res) => {
+    res.send('Welcome to the default endpoint!');
+  });
+  
 app.post('/insert', async (req, res) => {
   console.log('Insert:', req.body);
   const result = await pushDataToKnowledgebase(req.body)
